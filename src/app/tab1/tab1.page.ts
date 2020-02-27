@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(public alertController: AlertController) {}
+
+  test(){
+
+    var user=(<HTMLInputElement>document.getElementById('user')).value
+    var pass= (<HTMLInputElement>document.getElementById("pass")).value;
+    
+    alert("Your username is " + user + "\nYour password is " + pass)
+  }
 
 }
