@@ -1,7 +1,8 @@
 {
   "name": "YardSale",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

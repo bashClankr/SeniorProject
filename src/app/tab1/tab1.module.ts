@@ -5,10 +5,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { FirebaseUIModule } from 'firebaseui-angular';
 
 @NgModule({
   imports: [
     IonicModule,
+    FirebaseUIModule,
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,

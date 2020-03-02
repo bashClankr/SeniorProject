@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { Component, Inject, forwardRef } from '@angular/core';
+
+
+
 
 
 @Component({
@@ -9,7 +11,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab1Page {
 
-  constructor(public alertController: AlertController) {}
+  constructor() {}
 
   test(){
 
@@ -17,6 +19,10 @@ export class Tab1Page {
     var pass= (<HTMLInputElement>document.getElementById("pass")).value;
     
     alert("Your username is " + user + "\nYour password is " + pass)
+
   }
+
+  
+
 
 }
