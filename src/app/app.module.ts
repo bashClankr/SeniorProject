@@ -17,7 +17,21 @@ import { environment } from 'src/environments/environment';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+      return true;
+    },
+    uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+      document.getElementById('loader').style.display = 'none';
+    }
+  },
   signInFlow: 'popup',
+  signInSuccessUrl: '/tabs',
   signInOptions: [
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
     // fionirebase.auth.PhoneAuthProvider.PROVIDER_ID,
@@ -26,6 +40,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   privacyPolicyUrl: '/privacy',
   credentialHelper: firebaseui.auth.CredentialHelper.NONE,
 };
+
+
 
 @NgModule({
   declarations: [AppComponent],
