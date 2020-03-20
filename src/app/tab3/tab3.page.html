@@ -1,17 +1,90 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Settings</ion-title>
+    
+      <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()">
+        Log Out <ion-icon name='log-out'></ion-icon>
+      </ion-button>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      Account Settings
+    </ion-card-header>
+    <ion-list > 
+        <ion-item>
+            <ion-list-header>
+               Email: {{afAuth.auth.currentUser.email}}
+            </ion-list-header>
+            <ion-button round clear (click)="editEmail()">Edit</ion-button>
+        </ion-item>
+        <ion-item>
+            <ion-list-header>
+               Display Name: {{afAuth.auth.currentUser.displayName}}
+            </ion-list-header>
+            <ion-button class = "clear" ion-button round clear (click)="editUsername()">Edit</ion-button>
+        </ion-item>
+      </ion-list>
+    
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Customize Page
+    </ion-card-header>
+    
+    <ion-list>
+      <ion-list-header>
+        Adjust Text
+      </ion-list-header>
+     
+      <ion-item>
+        <ion-label>Text Size</ion-label>
+        <ion-select [(ngModel)]="textSize">
+
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <br>
+
+    <ion-list radio-group color = "dark">
+        <ion-list-header>
+          Color Scheme
+        </ion-list-header>
+        <ion-item>
+            <ion-label>Default</ion-label>
+            <ion-radio (click)="Grey()" checked="true" color = "dark"></ion-radio>
+          </ion-item>
+        <ion-item>
+            <ion-label>Ocean</ion-label>
+            <ion-radio (click)="Blue()" color = "dark"></ion-radio>
+          </ion-item>
+          <ion-item>
+              <ion-label>Candy</ion-label>
+              <ion-radio (click)="Purple()" color = "dark"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>Desert</ion-label>
+                <ion-radio (click)="Tan()" color = "dark"></ion-radio>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Forest</ion-label>
+                  <ion-radio (click)="Green()" color = "dark"></ion-radio>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Night</ion-label>
+                    <ion-radio (click)="Night()" color = "dark"></ion-radio>
+                  </ion-item>
+                
+      </ion-list>
+
+    
+
+  </ion-card>
+
 </ion-content>
+

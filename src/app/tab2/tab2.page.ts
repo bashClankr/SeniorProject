@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-tab2',
@@ -14,4 +15,16 @@ export class Tab2Page {
     this.afAuth.auth.signOut().then(() => {location.reload();});
   }
 
+  googleLogin(){
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // Already signed in.
+      } else {
+        alert("not signed in");
+      }
+    })
+  }
+  
+
 }
+
