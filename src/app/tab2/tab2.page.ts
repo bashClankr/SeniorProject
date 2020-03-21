@@ -11,9 +11,6 @@ export class Tab2Page {
 
   constructor(public afAuth: AngularFireAuth) {}
 
-  signOut(){
-    this.afAuth.auth.signOut().then(() => {location.reload();});
-  }
 
   googleLogin(){
     firebase.auth().onAuthStateChanged((user) => {

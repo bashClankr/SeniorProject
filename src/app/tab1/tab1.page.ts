@@ -1,6 +1,10 @@
 import { Component, Inject, forwardRef } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import {ROUTER_DIRECTIVES, Router, Location} from "angular/router";
+import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+
+
+
 
 
 
@@ -16,14 +20,14 @@ import {ROUTER_DIRECTIVES, Router, Location} from "angular/router";
 })
 export class Tab1Page {
 
-  constructor(public afAuth: AngularFireAuth, private router:Router, private location:Location) {
-      if (afAuth.auth.currentUser) {
-        // Already signed in.
-      } else {
-        alert("not signed in");
-        this.location.replaceState('/'); // clears browser history so they can't navigate with back button
-        this.router.navigate(['login']);
-      }
+  constructor(public afAuth: AngularFireAuth, public router:Router) {
+      // if (afAuth.auth.currentUser == null) {
+      //   this.router.navigateByUrl('/login');
+      // } else {
+    
+
+      // }
+    
     }
  }
 
